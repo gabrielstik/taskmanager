@@ -11,4 +11,12 @@
 </head>
 <body>
 <header>
+  <nav class="navigation auto-90">
+    <ul class="navigation--side left">
+      <li>Mes murs</li>
+    </ul>
+    <ul class="navigation--side right">
+      <li>Mon compte</li>
+    </ul>
+  </nav>
 </header>
