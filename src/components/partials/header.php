@@ -16,7 +16,12 @@
       <li>Mes murs</li>
     </ul>
     <ul class="navigation--side right">
-      <li>Mon compte</li>
+      <li class="js-account">
+        Mon compte
+      </li>
     </ul>
   </nav>
+  <form class="connection-form" action="/" method="post">
+    <div class="connection-form--title">Se connecter</div>
+  </form>
 </header>
