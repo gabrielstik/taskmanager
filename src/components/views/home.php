@@ -2,9 +2,6 @@
 
 $Db = new Db();
 $tasks = $Db->getTasks('gabe');
-echo '<pre style="font-size:12px">';
-print_r($tasks);
-echo '</pre>';
 
 ?>
 <section class="wall auto-90"> 
@@ -12,18 +9,12 @@ echo '</pre>';
   <div class="lists">
     <div class="list">
       <h2>Mes tâches</h2>
-      <div class="task checked">
+      <? foreach ($tasks as $task) { ?>
+      <div class="task <? if ($task->is_done) { ?>checked<? } ?>">
         <span class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</span>
-        <span class="task--name">Acheter un échiquier</span>
+        <span class="task--name"><?= $task->title ?></span>
       </div>
-      <div class="task">
-        <span class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</span>
-        <span class="task--name">Faire notre portfolio</span>
-      </div>
-      <div class="task checked">
-        <span class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</span>
-        <span class="task--name">Aller au Futuroscope</span>
-      </div>
+      <? } ?>
       <div class="task-add">
         <span class="task-add--plus">[+]</span>
       </div>
