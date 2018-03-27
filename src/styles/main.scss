@@ -9,17 +9,22 @@ body {
   margin: auto;
 }
 
-h1 {
+h1.wall--title {
   padding: 20px;
   font-size: 20px;
   text-align: center;
   border: solid 2px var(--white);
 }
 
-h2 {
+h2.list--title {
   font-size: 18px;
   padding: 10px 0;
   border-bottom: solid 1px var(--white);
+
+  &.add {
+    color: var(--blue);
+    cursor: pointer;
+  }
 }
 
 .wall {
