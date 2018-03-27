@@ -11,4 +11,17 @@
 </head>
 <body>
 <header>
+  <nav class="navigation auto-90">
+    <ul class="navigation--side left">
+      <li>Mes murs</li>
+    </ul>
+    <ul class="navigation--side right">
+      <li class="js-account">
+        Mon compte
+      </li>
+    </ul>
+  </nav>
+  <form class="connection-form" action="/" method="post">
+    <div class="connection-form--title">Se connecter</div>
+  </form>
 </header>
