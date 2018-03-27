@@ -19,4 +19,9 @@ class Db {
     $exec = $this->pdo->prepare("INSERT INTO users (username, password) VALUES ('$user', '$password')");
     $exec->execute();
   }
+  function getTasks($user) {
+    $query = $this->pdo->query("SELECT * FROM tasks WHERE related_user = '$user'");
+    $tasks = $query->fetchAll();
+    return $tasks;
+  }
 }

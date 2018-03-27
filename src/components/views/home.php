@@ -1,3 +1,12 @@
+<?
+
+$Db = new Db();
+$tasks = $Db->getTasks('gabe');
+echo '<pre style="font-size:12px">';
+print_r($tasks);
+echo '</pre>';
+
+?>
 <section class="wall auto-90"> 
   <h1>Mon mur</h1>
   <div class="lists">
