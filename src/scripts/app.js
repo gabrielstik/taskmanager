@@ -1,6 +1,6 @@
-const $tasks = document.querySelectorAll('.task')
-for (const $task of $tasks) {
-  $task.addEventListener('mousedown', () => {
-    $task.classList.toggle('checked')
+const $checkboxes = document.querySelectorAll('.task--checkbox')
+for (const $checkbox of $checkboxes) {
+  $checkbox.addEventListener('mousedown', () => {
+    $checkbox.parentNode.classList.toggle('checked')
   })
 }
