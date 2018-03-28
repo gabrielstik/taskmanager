@@ -19,13 +19,24 @@
       <li class="js-account">Mon compte</li>
     </ul>
   </nav>
-  <form class="connection-form" action="/" method="post">
+  <form class="connection-form active" action="/" method="post">
     <div class="connection-form--title">Se connecter</div>
     <div class="connection-form--item">
-      <input type="text" name="username">
+      <label for="username">Utilisateur :</label>
+      <input type="text" name="username" id="username">
     </div>
     <div class="connection-form--item">
-      <input type="password" name="password">
+      <label for="password">Mot de passe :</label>
+      <input type="password" name="password" id="password">
     </div>
+    <div class="connection-form--separator"></div>
+    <div class="connection-form--item">
+      <label for="create">Créer un compte</label>
+      <input type="checkbox" name="create" id="create">
+    </div>
+    <div class="connection-form--item">
+      <button type="submit">Se connecter</button>
+    </div>
+    <div class="connection-form--quit">x</div>
   </form>
 </header>
