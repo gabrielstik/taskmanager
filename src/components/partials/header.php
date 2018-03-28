@@ -16,12 +16,16 @@
       <li>Mes murs</li>
     </ul>
     <ul class="navigation--side right">
-      <li class="js-account">
-        Mon compte
-      </li>
+      <li class="js-account">Mon compte</li>
     </ul>
   </nav>
   <form class="connection-form" action="/" method="post">
     <div class="connection-form--title">Se connecter</div>
+    <div class="connection-form--item">
+      <input type="text" name="username">
+    </div>
+    <div class="connection-form--item">
+      <input type="password" name="password">
+    </div>
   </form>
 </header>
