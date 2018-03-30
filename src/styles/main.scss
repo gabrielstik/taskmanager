@@ -70,6 +70,14 @@ h2.list--title {
   line-height: 16.8px;
   color: var(--blue);
   cursor: pointer;
+
+  .task-add--plus {
+    cursor: pointer;
+  }
+
+  .task-add--name {
+    width: 80%;
+  }
 }
 
 .save-button {

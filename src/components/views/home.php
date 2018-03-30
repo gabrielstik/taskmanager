@@ -1,7 +1,9 @@
 <?
 
 $Db = new Db();
-$tasks = $Db->getTasks('gabe');
+$tasks = $Db->get_tasks('gabe');
+
+$Manager = new Manager();
 
 ?>
 <section class="wall auto-90"> 
@@ -15,9 +17,10 @@ $tasks = $Db->getTasks('gabe');
         <span class="task--name"><?= $task->title ?></span>
       </div>
       <? } ?>
-      <div class="task-add">
-        <span class="task-add--plus">[+]</span>
-      </div>
+      <form method="post" action="/" class="task-add">
+        <button type="submit" class="task-add--plus">[+]</button>
+        <input class="task-add--name" name="new-task-name"></input>
+      </form>
     </div>
     <div class="list">
       <h2 class="list--title add">+</h2>

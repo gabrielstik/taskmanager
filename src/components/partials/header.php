@@ -19,7 +19,7 @@
       <li class="js-account">Mon compte</li>
     </ul>
   </nav>
-  <form class="connection-form active" action="/" method="post">
+  <form class="connection-form" action="/" method="post">
     <div class="connection-form--title">Se connecter</div>
     <div class="connection-form--item">
       <label for="username">Utilisateur :</label>
