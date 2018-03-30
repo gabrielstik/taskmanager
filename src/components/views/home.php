@@ -13,7 +13,11 @@ $tasks = $Db->get_tasks('gabe');
       <h2 class="list--title">Mes tâches</h2>
       <? foreach ($tasks as $task) { ?>
       <div class="task <? if ($task->is_done) { ?>checked<? } ?>">
-        <span class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</span>
+        <form class="task-check" action="/" method="post">
+          <input type="hidden" name="check-is-done" value="<?= $task->is_done ?>">
+          <input type="hidden" name="check-task-id" value="<?= $task->id ?>">
+          <button type="submit" class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</button>
+        </form>
         <span class="task--name"><?= $task->title ?></span>
         <form class="task-delete" action="/" method="post">
           <input type="hidden" name="delete-task-id" value="<?= $task->id ?>">

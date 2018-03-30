@@ -31,4 +31,12 @@ class Db {
   function delete_task($task_id) {
     $exec = $this->pdo->exec("DELETE FROM tasks WHERE id = $task_id");
   }
+  function check_task($task_id, $is_done) {
+    if (!$is_done) {
+      $exec = $this->pdo->exec("UPDATE tasks SET is_done = true WHERE id = $task_id");
+    }
+    else {
+      $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
+    }
+  }
 }

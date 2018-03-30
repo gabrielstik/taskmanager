@@ -41,6 +41,10 @@ h2.list--title {
   font-size: 14px;
   line-height: 16.8px;
 
+  .task-check {
+    display: inline;
+  }
+
   .task--checkbox { cursor: pointer; }
 
   .task--name {
