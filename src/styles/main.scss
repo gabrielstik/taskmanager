@@ -100,22 +100,3 @@ h2.list--title {
     cursor: pointer;
   }
 }
-
-.save-button {
-  height: 50px;
-  padding: 0 20px;
-  position: fixed;
-  bottom: 30px;
-  left: 5vw;
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--white);
-  border: solid 1px var(--white);
-  background: var(--background);
-  outline: none;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}

@@ -31,6 +31,3 @@ $tasks = $Db->get_tasks('gabe');
     </div>
   </div>
 </section>
-<form action="/" method="post">
-  <button type="submit" class="save-button">Sauvegarder</button>
-</form>
