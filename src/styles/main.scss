@@ -42,7 +42,12 @@ h2.list--title {
   line-height: 16.8px;
 
   .task--checkbox { cursor: pointer; }
-  .task--name { cursor: pointer; }
+
+  .task--name {
+    width: 70%;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
   .task--status-todo { display: inline }
   .task--status-done { display: none }
@@ -62,6 +67,10 @@ h2.list--title {
     .task--status-todo { display: none }
     .task--status-done { display: inline }
   }
+
+  &:hover .task-delete {
+    visibility: visible;
+  }
 }
 
 .task-add {
@@ -72,11 +81,23 @@ h2.list--title {
   cursor: pointer;
 
   .task-add--plus {
+    float: right;
     cursor: pointer;
   }
 
   .task-add--name {
-    width: 80%;
+    margin-left: 33px;
+    width: 70%;
+  }
+}
+
+.task-delete {
+  float: right;
+  color: var(--red);
+  visibility: hidden;
+
+  button {
+    cursor: pointer;
   }
 }
 

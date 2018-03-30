@@ -28,4 +28,7 @@ class Db {
     $exec = $this->pdo->prepare("INSERT INTO tasks (related_user, title, is_done) VALUES ('$related_user', '$task_name', '$is_done')");
     $exec->execute();
   }
+  function delete_task($task_id) {
+    $exec = $this->pdo->exec("DELETE FROM tasks WHERE id = $task_id");
+  }
 }

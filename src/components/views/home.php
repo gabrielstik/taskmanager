@@ -15,6 +15,10 @@ $Manager = new Manager();
       <div class="task <? if ($task->is_done) { ?>checked<? } ?>">
         <span class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</span>
         <span class="task--name"><?= $task->title ?></span>
+        <form class="task-delete" action="/" method="post">
+          <input type="hidden" name="delete-task-id" value="<?= $task->id ?>">
+          <button type="submit">[x]</button>
+        </form>
       </div>
       <? } ?>
       <form method="post" action="/" class="task-add">
