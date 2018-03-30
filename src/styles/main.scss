@@ -9,25 +9,28 @@ body {
   margin: auto;
 }
 
-h1 {
-  padding: 20px;
-  font-size: 20px;
-  text-align: center;
-  border: solid 2px var(--white);
+h1.wall--title {
+  padding: 20px 0;
+  font-size: 24px;
 }
 
-h2 {
+h2.list--title {
   font-size: 18px;
   padding: 10px 0;
   border-bottom: solid 1px var(--white);
+
+  &.add {
+    color: var(--blue);
+    cursor: pointer;
+  }
 }
 
 .wall {
-  margin-top: 30px;
+  margin-top: 100px;
 }
 
 .lists {
-  margin-top: 50px;
+  margin-top: 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-gap: 50px;
@@ -38,8 +41,17 @@ h2 {
   font-size: 14px;
   line-height: 16.8px;
 
+  .task-check {
+    display: inline;
+  }
+
   .task--checkbox { cursor: pointer; }
-  .task--name { cursor: pointer; }
+
+  .task--name {
+    width: 70%;
+    overflow: hidden;
+    cursor: pointer;
+  }
 
   .task--status-todo { display: inline }
   .task--status-done { display: none }
@@ -59,6 +71,10 @@ h2 {
     .task--status-todo { display: none }
     .task--status-done { display: inline }
   }
+
+  &:hover .task-delete {
+    visibility: visible;
+  }
 }
 
 .task-add {
@@ -67,22 +83,24 @@ h2 {
   line-height: 16.8px;
   color: var(--blue);
   cursor: pointer;
+
+  .task-add--plus {
+    float: right;
+    cursor: pointer;
+  }
+
+  .task-add--name {
+    margin-left: 33px;
+    width: 70%;
+  }
 }
 
-.save-button {
-  padding: 20px;
-  position: fixed;
-  bottom: 30px;
-  left: 5vw;
-  font-family: inherit;
-  font-size: 16px;
-  color: var(--white);
-  border: solid 1px var(--white);
-  background: var(--background);
-  outline: none;
-  cursor: pointer;
+.task-delete {
+  float: right;
+  color: var(--red);
+  visibility: hidden;
 
-  &:hover {
-    text-decoration: underline;
+  button {
+    cursor: pointer;
   }
 }

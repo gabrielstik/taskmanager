@@ -9,19 +9,34 @@ class Db {
 			die('La base de donnée n\'est pas connectée. Veuillez contacter l\'administrateur.');
 		}
   }
-  function getHashedPassword($user) {
+  function get_hashed_password($user) {
     $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
     $user = $query->fetch();
     return !empty($user->password) ? $user->password : false;
   }
-  function createAccount($user, $password) {
+  function create_account($user, $password) {
     $password = password_hash($password, PASSWORD_DEFAULT);
     $exec = $this->pdo->prepare("INSERT INTO users (username, password) VALUES ('$user', '$password')");
     $exec->execute();
   }
-  function getTasks($user) {
+  function get_tasks($user) {
     $query = $this->pdo->query("SELECT * FROM tasks WHERE related_user = '$user'");
     $tasks = $query->fetchAll();
     return $tasks;
+  }
+  function add_task($related_user, $task_name, $is_done) {
+    $exec = $this->pdo->prepare("INSERT INTO tasks (related_user, title, is_done) VALUES ('$related_user', '$task_name', '$is_done')");
+    $exec->execute();
+  }
+  function delete_task($task_id) {
+    $exec = $this->pdo->exec("DELETE FROM tasks WHERE id = $task_id");
+  }
+  function check_task($task_id, $is_done) {
+    if (!$is_done) {
+      $exec = $this->pdo->exec("UPDATE tasks SET is_done = true WHERE id = $task_id");
+    }
+    else {
+      $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
+    }
   }
 }
