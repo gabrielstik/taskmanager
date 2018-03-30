@@ -1,9 +1,9 @@
 <?
 
 $Db = new Db();
+$Manager = new Manager();
 $tasks = $Db->get_tasks('gabe');
 
-$Manager = new Manager();
 
 ?>
 <section class="wall auto-90"> 
