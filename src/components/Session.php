@@ -1,23 +1,23 @@
 <?
 class Session {
   function verify($user, $password) {
-    $db = new Db();
-    $actual_pw = $db->getHashedPassword($user);
+    $Db = new Db();
+    $actual_pw = $Db->get_hashed_password($user);
     if (!empty($actual_pw)) {
       if (password_verify($password, $actual_pw)) {
         $_SESSION['username'] = $user;
-        header('Location: /favoris');
+        header('Location: /');
       }
       else {
-        header('Location: /'.$_GET['q'].'?error=password');
+        header('Location: /?error=password');
       }
     }
     else {
-      header('Location: /'.$_GET['q'].'?error=notuser');
+      header('Location: /?error=notuser');
     }
   }
-  function createAccount($user, $password) {
-    $db = new Db();
-    $db->createAccount($user, $password);
+  function new_account($user, $password) {
+    $Db = new Db();
+    if ($Db->check_account($user)) $Db->create_account($user, $password);
   }
 }

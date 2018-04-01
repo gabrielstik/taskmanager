@@ -14,6 +14,11 @@ class Db {
     $user = $query->fetch();
     return !empty($user->password) ? $user->password : false;
   }
+  function check_account($user) {
+    $query = $this->pdo->query("SELECT * FROM users WHERE username = '$user'");
+    $user = $query->fetch();
+    return empty($user) ? true : false;
+  }
   function create_account($user, $password) {
     $password = password_hash($password, PASSWORD_DEFAULT);
     $exec = $this->pdo->prepare("INSERT INTO users (username, password) VALUES ('$user', '$password')");
@@ -21,6 +26,11 @@ class Db {
   }
   function get_walls($user) {
     $query = $this->pdo->query("SELECT * FROM walls WHERE related_user = '$user'");
+    $walls = $query->fetchAll();
+    return $walls;
+  }
+  function get_tasks($wall) {
+    $query = $this->pdo->query("SELECT * FROM tasks WHERE related_wall = '$wall'");
     $tasks = $query->fetchAll();
     return $tasks;
   }
@@ -38,5 +48,13 @@ class Db {
     else {
       $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
     }
+  }
+  function add_wall($wall_name, $related_user) {
+    $exec = $this->pdo->prepare("INSERT INTO walls (wall,  related_user) VALUES ('$wall_name', '$related_user')");
+    $exec->execute();
+  }
+  function delete_wall($wall_id) {
+    $exec = $this->pdo->exec("DELETE FROM tasks WHERE related_wall = $wall_id");
+    $exec = $this->pdo->exec("DELETE FROM walls WHERE id = $wall_id");
   }
 }

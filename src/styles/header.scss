@@ -3,6 +3,7 @@ header {
   height: 50px;
   padding: 10px;
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   border-bottom: solid 1px var(--white);
@@ -25,7 +26,7 @@ header {
       }
     }
 
-    li {
+    li, li button {
       cursor: pointer;
 
       &:hover {
@@ -37,7 +38,7 @@ header {
   form.connection-form {
     width: 500px;
     padding: 50px;
-    position: fixed;
+    position: absolute;;
     top: 150px;
     left: calc(50% - 250px);
     background: var(--background);
@@ -81,6 +82,11 @@ header {
           text-decoration: underline;
         }
       }
+    }
+
+    .connection-form--error {
+      margin-top: 5px;
+      color: var(--red);
     }
 
     .connection-form--separator {
