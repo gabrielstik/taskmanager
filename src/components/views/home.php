@@ -8,7 +8,7 @@ $walls = $Db->get_walls('gabe');
 <section class="wall auto-90"> 
   <h1 class="wall--title">Mon mur</h1>
   <div class="lists">
-    <? foreach ($walls as $wall) { $tasks = $Db->get_tasks($wall->wall) ?>
+    <? foreach ($walls as $wall) { $tasks = $Db->get_tasks($wall->id) ?>
     <div class="list">
       <h2 class="list--title">
         <?= $wall->wall ?>
@@ -32,7 +32,7 @@ $walls = $Db->get_walls('gabe');
       </div>
       <? } ?>
       <form method="post" action="/" class="task-add">
-        <input type="hidden" name="new-task-related-wall" value="<?= $wall->wall ?>"></input>
+        <input type="hidden" name="new-task-related-wall" value="<?= $wall->id ?>"></input>
         <button type="submit" class="task-add--plus">[+]</button>
         <input type="text" class="task-add--name" name="new-task-name"></input>
       </form>
