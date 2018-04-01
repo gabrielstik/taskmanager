@@ -28,7 +28,7 @@
       <? } ?>
     </ul>
   </nav>
-      <form class="connection-form <? if (isset($_GET['error'])) { ?>active<? } ?>" action="/" method="post">
+      <form class="connection-form <? if (!isset($_SESSION['username'])) { ?>active<? } ?>" action="/" method="post">
     <div class="connection-form--title">Se connecter</div>
     <div class="connection-form--item">
       <label for="username">Utilisateur :</label>
