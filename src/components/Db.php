@@ -1,4 +1,5 @@
 <?
+
 class Db {
 	function __construct() {    
 		try {
@@ -35,7 +36,8 @@ class Db {
     return $tasks;
   }
   function add_task($related_wall, $task_name, $is_done) {
-    $exec = $this->pdo->prepare("INSERT INTO tasks (related_wall, title, is_done) VALUES ('$related_wall', '$task_name', '$is_done')");
+    $default_deadline = time() + 604800;
+    $exec = $this->pdo->prepare("INSERT INTO tasks (related_wall, title, is_done, deadline, priority) VALUES ('$related_wall', '$task_name', '$is_done', '$default_deadline', 0)");
     $exec->execute();
   }
   function delete_task($task_id) {
@@ -48,6 +50,10 @@ class Db {
     else {
       $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
     }
+  }
+  function update_infos($task_id, $date, $time) {
+    $timestamp = strtotime($date.' '.$time);
+    $exec = $this->pdo->exec("UPDATE tasks SET deadline = '$timestamp' WHERE id = $task_id");
   }
   function add_wall($wall_name, $related_user) {
     $exec = $this->pdo->prepare("INSERT INTO walls (wall,  related_user) VALUES ('$wall_name', '$related_user')");
