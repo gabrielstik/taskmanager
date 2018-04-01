@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  Dim 01 avr. 2018 à 23:27
+-- Généré le :  Dim 01 avr. 2018 à 23:50
 -- Version du serveur :  5.6.38
 -- Version de PHP :  7.1.12
 
@@ -25,21 +25,22 @@ CREATE TABLE `tasks` (
   `related_wall` varchar(50) NOT NULL,
   `title` varchar(100) NOT NULL,
   `is_done` tinyint(1) NOT NULL,
-  `deadline` int(11) NOT NULL
+  `deadline` int(11) NOT NULL,
+  `priority` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `tasks`
 --
 
-INSERT INTO `tasks` (`id`, `related_wall`, `title`, `is_done`, `deadline`) VALUES
-(49, '5', 'Sortir Sudo', 0, 1523222198),
-(50, '6', 'Préparer les partiels', 0, 1523222208),
-(51, '6', 'Corriger les devoirs', 1, 1523222214),
-(54, '6', 'Préparer la semaine API', 0, 1523222293),
-(55, '5', 'Finir mon projet', 1, 1523222318),
-(56, '7', 'Que faire cet été ?', 0, 1523222337),
-(57, '8', 'afezrgetr', 0, 1523222444);
+INSERT INTO `tasks` (`id`, `related_wall`, `title`, `is_done`, `deadline`, `priority`) VALUES
+(49, '5', 'Sortir Sudo', 0, 1523222198, 0),
+(50, '6', 'Préparer les partiels', 0, 1523222160, 3),
+(51, '6', 'Corriger les devoirs', 1, 1523222214, 0),
+(54, '6', 'Préparer la semaine API', 0, 1523222293, 0),
+(55, '5', 'Finir mon projet', 1, 1523222280, 1),
+(56, '7', 'Que faire cet été ?', 0, 1523222337, 0),
+(57, '8', 'afezrgetr', 0, 1523222444, 0);
 
 -- --------------------------------------------------------
 

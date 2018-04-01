@@ -37,6 +37,7 @@ Now you can run the app.
 
 - You can add, remove & edit tasks
 - Tasks have a custom deadline
+- Priority management
 - User profiles
 - Multiple walls
 - Responsive website
