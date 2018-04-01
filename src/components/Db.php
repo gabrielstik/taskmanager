@@ -19,13 +19,18 @@ class Db {
     $exec = $this->pdo->prepare("INSERT INTO users (username, password) VALUES ('$user', '$password')");
     $exec->execute();
   }
-  function get_tasks($user) {
-    $query = $this->pdo->query("SELECT * FROM tasks WHERE related_user = '$user'");
+  function get_walls($user) {
+    $query = $this->pdo->query("SELECT * FROM walls WHERE related_user = '$user'");
+    $walls = $query->fetchAll();
+    return $walls;
+  }
+  function get_tasks($wall) {
+    $query = $this->pdo->query("SELECT * FROM tasks WHERE related_wall = '$wall'");
     $tasks = $query->fetchAll();
     return $tasks;
   }
-  function add_task($related_user, $task_name, $is_done) {
-    $exec = $this->pdo->prepare("INSERT INTO tasks (related_user, title, is_done) VALUES ('$related_user', '$task_name', '$is_done')");
+  function add_task($related_wall, $task_name, $is_done) {
+    $exec = $this->pdo->prepare("INSERT INTO tasks (related_wall, title, is_done) VALUES ('$related_wall', '$task_name', '$is_done')");
     $exec->execute();
   }
   function delete_task($task_id) {
