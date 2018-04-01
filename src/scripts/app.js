@@ -39,3 +39,14 @@ for (const $tasksQuit of $tasksQuits) {
     $tasksQuit.parentNode.classList.remove('active')
   })
 }
+
+const $priorities = document.querySelectorAll('.task-infos--priority div')
+for (const $priority of $priorities) {
+  $priority.addEventListener('mousedown', () => {
+    for (const $priority of $priorities) {
+      $priority.classList.remove('active')
+    }
+    $priority.classList.add('active')
+    $priority.parentNode.querySelector('input').value = $priority.dataset.priority
+  })
+}

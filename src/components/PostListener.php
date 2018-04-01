@@ -16,7 +16,7 @@ class PostListener {
     }
     if (isset($_POST['infos-date']) && isset($_POST['infos-time'])) {
       $Db = new Db();
-      $Db->update_infos($_POST['infos-id'], $_POST['infos-date'], $_POST['infos-time']);
+      $Db->update_infos($_POST['infos-id'], $_POST['infos-date'], $_POST['infos-time'], $_POST['infos-priority']);
     }
     if (isset($_POST['new-wall-name'])) {
       $Db = new Db();

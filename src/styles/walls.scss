@@ -75,6 +75,10 @@ h2.list--title:hover .wall-delete {
     &.dead {
       color: var(--red);
     }
+
+    .task--priority {
+      color: var(--red);
+    }
   }
 
   .task--status-todo { display: inline }

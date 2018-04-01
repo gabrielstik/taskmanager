@@ -17,7 +17,14 @@
           <input type="hidden" name="check-task-id" value="<?= $task->id ?>">
           <button type="submit" class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</button>
         </form>
-      <span class="task--name <? if ($task->deadline - time() < 0) { ?>dead<? } ?>"><?= $task->title ?></span>
+        <span class="task--name <? if ($task->deadline - time() < 0) { ?>dead<? } ?>">
+          <?= $task->title ?>
+          <?
+          if ($task->priority == 1) echo '<span class="task--priority">!</span>'; 
+          if ($task->priority == 2) echo '<span class="task--priority">!!</span>'; 
+          if ($task->priority == 3) echo '<span class="task--priority">!!!</span>'; 
+          ?>
+        </span>
         <form class="task-delete" action="/" method="post">
           <input type="hidden" name="delete-task-id" value="<?= $task->id ?>">
           <button type="submit">[x]</button>
@@ -25,9 +32,18 @@
         <form class="task-infos" action="/" method="post">
           <h3 class="task-infos--name"><?= $task->title ?></h3>
           <input type="hidden" name="infos-id" value="<?= $task->id ?>">
-          <div class="task-infos--deadline">
-            <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
-            <input type="time" name="infos-time" value="<?= date('H:i', $task->deadline) ?>">
+          <div class="flex between">
+            <div class="task-infos--deadline">
+              <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
+              <input type="time" name="infos-time" value="<?= date('H:i', $task->deadline) ?>">
+            </div>
+            <div class="task-infos--priority flex">
+              <div data-priority="0" <? if ($task->priority == 0) { ?>class="active"<? } ?>>0</div>
+              <div data-priority="1" <? if ($task->priority == 1) { ?>class="active"<? } ?>>!</div>
+              <div data-priority="2" <? if ($task->priority == 2) { ?>class="active"<? } ?>>!!</div>
+              <div data-priority="3" <? if ($task->priority == 3) { ?>class="active"<? } ?>>!!!</div>
+              <input type="hidden" name="infos-priority" value="<?= $task->priority ?>">
+            </div>
           </div>
           <button class="task-infos--save" type="submit">Enregistrer</button>
           <div class="task-infos--quit">x</div>
