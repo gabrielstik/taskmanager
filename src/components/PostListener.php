@@ -26,5 +26,9 @@ class PostListener {
       $Session = new Session();
       $Session->verify($_POST['connection-username'], $_POST['connection-password']);
     }
+    if (isset($_POST['is-disconnecting'])) {
+      session_destroy();
+      header('Location: /');
+    }
   }
 }

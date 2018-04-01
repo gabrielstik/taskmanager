@@ -16,7 +16,16 @@
       <li>Mes murs</li>
     </ul>
     <ul class="navigation--side right">
+      <? if (!isset($_SESSION['username'])) { ?>
       <li class="js-account">Mon compte</li>
+      <? } else { ?>
+      <li>
+        <form class="disconnect" action="/" method="post">
+          <input type="hidden" name="is-disconnecting" value="1">
+          <button type="submit">Me deconnecter</button>
+        </form>
+      </li>
+      <? } ?>
     </ul>
   </nav>
   <form class="connection-form" action="/" method="post">
