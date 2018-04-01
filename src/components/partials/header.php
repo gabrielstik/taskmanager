@@ -13,7 +13,7 @@
 <header>
   <nav class="navigation auto-90">
     <ul class="navigation--side left">
-      <li>Mes murs</li>
+      <li>Tasques</li>
     </ul>
     <ul class="navigation--side right">
       <? if (!isset($_SESSION['username'])) { ?>
@@ -28,16 +28,22 @@
       <? } ?>
     </ul>
   </nav>
-  <form class="connection-form" action="/" method="post">
+      <form class="connection-form <? if (isset($_GET['error'])) { ?>active<? } ?>" action="/" method="post">
     <div class="connection-form--title">Se connecter</div>
     <div class="connection-form--item">
       <label for="username">Utilisateur :</label>
       <input type="text" name="connection-username" id="username">
     </div>
+    <? if (isset($_GET['error']) && $_GET['error'] == 'notuser') { ?>
+      <div class="connection-form--error">Ce compte n'existe pas !</div>
+    <? } ?>
     <div class="connection-form--item">
       <label for="password">Mot de passe :</label>
       <input type="password" name="connection-password" id="password">
     </div>
+    <? if (isset($_GET['error']) && $_GET['error'] == 'password') { ?>
+      <div class="connection-form--error">Le mot de passe est incorrect !</div>
+    <? } ?>
     <div class="connection-form--separator"></div>
     <div class="connection-form--item">
       <label for="create">Créer un compte</label>

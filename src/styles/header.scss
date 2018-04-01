@@ -84,6 +84,11 @@ header {
       }
     }
 
+    .connection-form--error {
+      margin-top: 5px;
+      color: var(--red);
+    }
+
     .connection-form--separator {
       height: 20px;
     }
