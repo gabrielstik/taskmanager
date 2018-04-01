@@ -14,6 +14,10 @@ class PostListener {
       $Db = new Db();
       $Db->check_task($_POST['check-task-id'], $_POST['check-is-done']);
     }
+    if (isset($_POST['infos-date']) && isset($_POST['infos-time'])) {
+      $Db = new Db();
+      $Db->update_infos($_POST['infos-id'], $_POST['infos-date'], $_POST['infos-time']);
+    }
     if (isset($_POST['new-wall-name'])) {
       $Db = new Db();
       $Db->add_wall($_POST['new-wall-name'], 'gabe');

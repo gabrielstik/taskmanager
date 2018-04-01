@@ -22,6 +22,22 @@
           <input type="hidden" name="delete-task-id" value="<?= $task->id ?>">
           <button type="submit">[x]</button>
         </form>
+        <form class="task-infos" action="/" method="post">
+          <h3 class="task-infos--name"><?= $task->title ?></h3>
+          <input type="hidden" name="infos-id" value="<?= $task->id ?>">
+          <div class="flex between">
+            <div class="task-infos--deadline">
+              <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
+              <input type="time" name="infos-time" value="<?= date('h:i', $task->deadline) ?>">
+            </div>
+            <div class="task-infos--priority flex between">
+              <div>!</div>
+              <div>!!</div>
+              <div>!!!</div>
+            </div>
+          </div>
+          <button class="task-infos--save" type="submit">Enregistrer</button>
+        </form>
       </div>
       <? } ?>
       <form method="post" action="/" class="task-add">

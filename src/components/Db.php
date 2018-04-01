@@ -1,4 +1,5 @@
 <?
+
 class Db {
 	function __construct() {    
 		try {
@@ -48,6 +49,10 @@ class Db {
     else {
       $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
     }
+  }
+  function update_infos($task_id, $date, $time) {
+    $timestamp = strtotime($date.' '.$time);
+    $exec = $this->pdo->exec("UPDATE tasks SET deadline = '$timestamp' WHERE id = $task_id");
   }
   function add_wall($wall_name, $related_user) {
     $exec = $this->pdo->prepare("INSERT INTO walls (wall,  related_user) VALUES ('$wall_name', '$related_user')");
