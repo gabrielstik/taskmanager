@@ -11,13 +11,13 @@
         </form>
       </h2>
       <? foreach ($tasks as $task) { ?>
-      <div class="task <? if ($task->is_done) { ?>checked<? } ?>">
+      <div class="task <? if ($task->is_done) { ?>checked<? } ?> active">
         <form class="task-check" action="/" method="post">
           <input type="hidden" name="check-is-done" value="<?= $task->is_done ?>">
           <input type="hidden" name="check-task-id" value="<?= $task->id ?>">
           <button type="submit" class="task--checkbox">[<span class="task--status-todo"> </span><span class="task--status-done">x</span>]</button>
         </form>
-        <span class="task--name"><?= $task->title ?></span>
+      <span class="task--name <? if ($task->deadline - time() < 0) { ?>dead<? } ?>"><?= $task->title ?></span>
         <form class="task-delete" action="/" method="post">
           <input type="hidden" name="delete-task-id" value="<?= $task->id ?>">
           <button type="submit">[x]</button>
@@ -28,7 +28,7 @@
           <div class="flex between">
             <div class="task-infos--deadline">
               <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
-              <input type="time" name="infos-time" value="<?= date('h:i', $task->deadline) ?>">
+              <input type="time" name="infos-time" value="<?= date('H:i', $task->deadline) ?>">
             </div>
             <div class="task-infos--priority flex between">
               <div>!</div>
@@ -37,6 +37,7 @@
             </div>
           </div>
           <button class="task-infos--save" type="submit">Enregistrer</button>
+          <div class="task-infos--quit">x</div>
         </form>
       </div>
       <? } ?>

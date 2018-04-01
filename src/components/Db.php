@@ -36,7 +36,8 @@ class Db {
     return $tasks;
   }
   function add_task($related_wall, $task_name, $is_done) {
-    $exec = $this->pdo->prepare("INSERT INTO tasks (related_wall, title, is_done) VALUES ('$related_wall', '$task_name', '$is_done')");
+    $default_deadline = time() + 86400;
+    $exec = $this->pdo->prepare("INSERT INTO tasks (related_wall, title, is_done, deadline) VALUES ('$related_wall', '$task_name', '$is_done', '$default_deadline')");
     $exec->execute();
   }
   function delete_task($task_id) {

@@ -87,6 +87,10 @@ h2.list--title:hover .wall-delete {
     width: 70%;
     overflow: hidden;
     cursor: pointer;
+
+    &.dead {
+      color: var(--red);
+    }
   }
 
   .task--status-todo { display: inline }
@@ -150,6 +154,11 @@ h2.list--title:hover .wall-delete {
   left: calc(50% - 250px);
   background: var(--background);
   border: solid 1px white;
+  visibility: hidden;
+
+  &.active {
+    visibility: visible;
+  }
 
   .task-infos--name {
     font-size: 18px;
@@ -183,5 +192,14 @@ h2.list--title:hover .wall-delete {
     padding: 10px;
     display: inline-block;
     border: solid 1px white;
+  }
+
+  .task-infos--quit {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 24px;
+    color: var(--red);
+    cursor: pointer;
   }
 }
