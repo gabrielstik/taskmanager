@@ -1,6 +1,6 @@
 <?
 
-class Manager {
+class PostListener {
   function __construct() {
     if (isset($_POST['new-task-name'])) {
       $Db = new Db();
@@ -21,6 +21,10 @@ class Manager {
     if (isset($_POST['delete-wall-id'])) {
       $Db = new Db();
       $Db->delete_wall($_POST['delete-wall-id']);
+    }
+    if (isset($_POST['connection-username'])) {
+      $Session = new Session();
+      $Session->verify($_POST['connection-username'], $_POST['connection-password']);
     }
   }
 }

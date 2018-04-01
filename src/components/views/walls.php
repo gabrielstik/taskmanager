@@ -1,10 +1,3 @@
-<?
-
-$Db = new Db();
-$Manager = new Manager();
-$walls = $Db->get_walls('gabe');
-
-?>
 <section class="wall auto-90"> 
   <h1 class="wall--title">Mon mur</h1>
   <div class="lists">

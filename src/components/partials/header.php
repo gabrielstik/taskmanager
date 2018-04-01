@@ -23,16 +23,16 @@
     <div class="connection-form--title">Se connecter</div>
     <div class="connection-form--item">
       <label for="username">Utilisateur :</label>
-      <input type="text" name="username" id="username">
+      <input type="text" name="connection-username" id="username">
     </div>
     <div class="connection-form--item">
       <label for="password">Mot de passe :</label>
-      <input type="password" name="password" id="password">
+      <input type="password" name="connection-password" id="password">
     </div>
     <div class="connection-form--separator"></div>
     <div class="connection-form--item">
       <label for="create">Créer un compte</label>
-      <input type="checkbox" name="create" id="create">
+      <input type="checkbox" name="connection-create" id="create">
     </div>
     <div class="connection-form--item">
       <button type="submit">Se connecter</button>
