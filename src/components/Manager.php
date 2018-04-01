@@ -14,5 +14,13 @@ class Manager {
       $Db = new Db();
       $Db->check_task($_POST['check-task-id'], $_POST['check-is-done']);
     }
+    if (isset($_POST['new-wall-name'])) {
+      $Db = new Db();
+      $Db->add_wall($_POST['new-wall-name'], 'gabe');
+    }
+    if (isset($_POST['delete-wall-id'])) {
+      $Db = new Db();
+      $Db->delete_wall($_POST['delete-wall-id']);
+    }
   }
 }

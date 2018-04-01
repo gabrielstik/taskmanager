@@ -10,7 +10,13 @@ $walls = $Db->get_walls('gabe');
   <div class="lists">
     <? foreach ($walls as $wall) { $tasks = $Db->get_tasks($wall->wall) ?>
     <div class="list">
-      <h2 class="list--title"><?= $wall->wall ?></h2>
+      <h2 class="list--title">
+        <?= $wall->wall ?>
+        <form class="wall-delete" action="/" method="post">
+          <input type="hidden" name="delete-wall-id" value="<?= $wall->id ?>">
+          <button type="submit">[x]</button>
+        </form>
+      </h2>
       <? foreach ($tasks as $task) { ?>
       <div class="task <? if ($task->is_done) { ?>checked<? } ?>">
         <form class="task-check" action="/" method="post">
@@ -33,7 +39,12 @@ $walls = $Db->get_walls('gabe');
     </div>
     <? } ?>
     <div class="list">
-      <h2 class="list--title add">+</h2>
+      <h2 class="list--title add">
+        <form method="post" action="/" class="wall-add">
+          <input type="text" name="new-wall-name"></input>
+          <button type="submit" class="wall-add--plus">[+]</button>
+        </form>
+      </h2>
     </div>
   </div>
 </section>

@@ -44,4 +44,11 @@ class Db {
       $exec = $this->pdo->exec("UPDATE tasks SET is_done = false WHERE id = $task_id");
     }
   }
+  function add_wall($wall_name, $related_user) {
+    $exec = $this->pdo->prepare("INSERT INTO walls (wall,  related_user) VALUES ('$wall_name', '$related_user')");
+    $exec->execute();
+  }
+  function delete_wall($wall_id) {
+    $exec = $this->pdo->exec("DELETE FROM walls WHERE id = $wall_id");
+  }
 }
