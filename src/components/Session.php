@@ -16,8 +16,8 @@ class Session {
       header('Location: /?error=notuser');
     }
   }
-  function create_account($user, $password) {
+  function new_account($user, $password) {
     $Db = new Db();
-    $Db->create_account($user, $password);
+    if ($Db->check_account($user)) $Db->create_account($user, $password);
   }
 }

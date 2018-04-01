@@ -24,6 +24,9 @@ class PostListener {
     }
     if (isset($_POST['connection-username'])) {
       $Session = new Session();
+      if (isset($_POST['connection-create'])) {
+        $Session->new_account($_POST['connection-username'], $_POST['connection-password']);
+      }
       $Session->verify($_POST['connection-username'], $_POST['connection-password']);
     }
     if (isset($_POST['is-disconnecting'])) {
