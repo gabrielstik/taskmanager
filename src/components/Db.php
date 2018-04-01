@@ -49,6 +49,7 @@ class Db {
     $exec->execute();
   }
   function delete_wall($wall_id) {
+    $exec = $this->pdo->exec("DELETE FROM tasks WHERE related_wall = $wall_id");
     $exec = $this->pdo->exec("DELETE FROM walls WHERE id = $wall_id");
   }
 }
