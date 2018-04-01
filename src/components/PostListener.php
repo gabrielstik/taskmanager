@@ -20,7 +20,7 @@ class PostListener {
     }
     if (isset($_POST['new-wall-name'])) {
       $Db = new Db();
-      $Db->add_wall($_POST['new-wall-name'], 'gabe');
+      $Db->add_wall($_POST['new-wall-name'], $_SESSION['username']);
     }
     if (isset($_POST['delete-wall-id'])) {
       $Db = new Db();
