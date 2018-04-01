@@ -25,16 +25,9 @@
         <form class="task-infos" action="/" method="post">
           <h3 class="task-infos--name"><?= $task->title ?></h3>
           <input type="hidden" name="infos-id" value="<?= $task->id ?>">
-          <div class="flex between">
-            <div class="task-infos--deadline">
-              <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
-              <input type="time" name="infos-time" value="<?= date('H:i', $task->deadline) ?>">
-            </div>
-            <div class="task-infos--priority flex between">
-              <div>!</div>
-              <div>!!</div>
-              <div>!!!</div>
-            </div>
+          <div class="task-infos--deadline">
+            <input type="date" name="infos-date" value="<?= date('Y-m-d', $task->deadline) ?>">
+            <input type="time" name="infos-time" value="<?= date('H:i', $task->deadline) ?>">
           </div>
           <button class="task-infos--save" type="submit">Enregistrer</button>
           <div class="task-infos--quit">x</div>
